@@ -55,7 +55,7 @@ elems.forEach(function (elem) {
         },
       });
 
-      index === h1s.length - 1 ? (index = 0) : index++;
+      index === h1s.length - 1 ? (index = 0) : index++; //Might edit here.
 
       gsap.to(h1s[index], {
         top: "-=100%",
