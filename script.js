@@ -41,6 +41,9 @@ elems.forEach(function (elem) {
   var index = 0;
   var animating = false;
 
+  // Set initial positions for h1 elements
+  h1s.forEach(h1 => gsap.set(h1, { top: "100%" }));
+
   document.querySelector("#main").addEventListener("click", function () {
     if (!animating) {
       animating = true;
@@ -53,9 +56,9 @@ elems.forEach(function (elem) {
           gsap.set(this.target, { top: "100%" });
 
           index = (index + 1) % h1s.length; // Update index here
-          
+
           gsap.to(h1s[index], {
-            top: "-=100%",
+            top: "0%",
             ease: Expo.easeInOut,
             duration: 1,
             onComplete: function () {
