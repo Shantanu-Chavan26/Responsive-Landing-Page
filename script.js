@@ -51,16 +51,18 @@ elems.forEach(function (elem) {
         duration: 1,
         onComplete: function () {
           gsap.set(this.target, { top: "100%" });
-          animating = false;
+
+          index = (index + 1) % h1s.length; // Update index here
+          
+          gsap.to(h1s[index], {
+            top: "-=100%",
+            ease: Expo.easeInOut,
+            duration: 1,
+            onComplete: function () {
+              animating = false; // Reset the flag here
+            },
+          });
         },
-      });
-
-      index === h1s.length - 1 ? (index = 0) : index++; //Might edit here.
-
-      gsap.to(h1s[index], {
-        top: "-=100%",
-        ease: Expo.easeInOut,
-        duration: 1,
       });
     }
   });
